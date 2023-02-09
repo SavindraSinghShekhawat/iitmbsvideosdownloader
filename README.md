@@ -17,6 +17,8 @@ Usage
 Example for Windows
 
 ```python
+from iitmbsvideosdownloader import smartbot, SUBJECTS
+
 smartbot.start(
     browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
     download_path="D:\\Term 7",
