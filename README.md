@@ -17,12 +17,10 @@ Usage
 Example for Windows
 
 ```python
-from iitmbsvideosdownloader import smartbot, SUBJECTS
-
 smartbot.start(
-	browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-    download_path= "D:\\Term 7",
-    user_data_path="C:\\Users\\Username\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
+    browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+    download_path="D:\\Term 7",
+    user_data_path="C:\\Users\\Shekh\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
     profile_name="Default",
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
