@@ -58,7 +58,7 @@ In the Code:
 
 ## Essential Steps
 
-1) make sure you are logged in to your browser(Brave recommended) on any of the course (on seek portal)
+1) make sure you are logged in to your browser(Brave recommended) on any of the course (on seek portal) and if already logged in then close the browser
 2) install the library using pip
 3) paste the code above in Python Environment (PyCharm recommended)
 4) change the code as per your system and needs
