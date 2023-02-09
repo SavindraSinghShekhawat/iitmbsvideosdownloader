@@ -22,7 +22,7 @@ from iitmbsvideosdownloader import smartbot, SUBJECTS
 smartbot.start(
     browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
     download_path="D:\\Term 7",
-    user_data_path="C:\\Users\\Shekh\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
+    user_data_path="C:\\Users\\<Username>\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
     profile_name="Default",
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
@@ -77,12 +77,6 @@ PyCharm - download from [here](https://www.jetbrains.com/pycharm/)
 ### Tip
 
 Put all your current subjects in subjects argument and when you don't need to download any of them just comment out that subject.
-
-
-
-### Safety is Essential
-
-Code written in this package is tested several times and is robust as  per our understanding. But we still suggest you to use it carefully.
 
 
 
