@@ -17,12 +17,12 @@ Usage
 Example for Windows
 
 ```python
-from iitmbsvideosdownloader import smartbot, SUBJECTS
+from iitmbsvideosdownloader import SUBJECTS, iitmbsvideosdownloader
 
-smartbot.start(
+mySmartBot = iitmbsvideosdownloader.SmartBot(
     browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
     download_path="D:\\Term 7",
-    user_data_path="C:\\Users\\<Username>\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
+    user_data_path="C:\\Users\\Shekh\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
     profile_name="Default",
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
@@ -34,6 +34,8 @@ smartbot.start(
     term=1,
     week=4,
 )
+
+mySmartBot.start()
 ```
 
 In the Code:
