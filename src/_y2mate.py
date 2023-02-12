@@ -19,6 +19,12 @@ class Y2mate:
     # downloads a file and retries if failed
     def download_file(self, driver, i, video_id, titles, yt_video_titles):
         self.log(f"--> {titles[i]}...", 2)
+
+        if self.check_file_exists(self.beautify_file_name(titles[i]) + ".mp4") or self.check_file_exists(self.beautify_file_name(titles[i]) + ".webm"):
+            self.log(self.beautify_file_name(titles[i]) + ".mp4")
+            self.log("Already downloaded, skipping", 2)
+            return
+
         driver.get("https://www.y2mate.com/")
         self.wait_for_element_by_class(driver, "input-lg", 20)
         time.sleep(self.SLEEP_TIME)
@@ -33,12 +39,13 @@ class Y2mate:
 
         self.wait_for_element_by_class(driver, "btn-success", 20)
         time.sleep(self.SLEEP_TIME)
-        downloadButtons = None
+        downloadButtons = []
         failure_ = True
         while failure_:
             try:
                 downloadButtons = driver.find_elements(By.CLASS_NAME, "btn-success")
-                failure_ = False
+                if len(downloadButtons) > 2:
+                    failure_ = False
             except NoSuchElementException:
                 failure_ = True
         downloadButtons[1].click()

@@ -94,6 +94,9 @@ class Functions:
             if self.VERBOSE >= verbose:
                 print(s)
 
+    def check_file_exists(self, filename):
+        return os.path.isfile(os.path.join(self.DOWNLOAD_DIRECTORY, filename))
+
     # gets the newest .mp4 or .webm file in path
     def newest(self, path):
         files = os.listdir(path)
@@ -132,7 +135,7 @@ class Functions:
                         filename = "L" + l[0] + " - " + ' '.join(l[1:])
             else:
                 filename = filename.replace(":", " -")
-        return string.valid_file_name(filename)
+        return self.valid_file_name(filename)
 
     # returns a valid filename by removing characters that are not allowed in filenames
     def valid_file_name(self, filename):
