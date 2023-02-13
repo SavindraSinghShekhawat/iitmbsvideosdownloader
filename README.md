@@ -58,7 +58,13 @@ In the Code:
 
 
 
-## Essential Steps
+## Stepwise guide to installation
+
+[Visit guide](https://drive.google.com/file/d/1fHgi_SdypoPn2BUAc1tzQ-DfsznSyXgf/view?usp=sharing)
+
+
+
+## Install using pip
 
 1) make sure you are logged in to your browser(Brave recommended) on any of the course (on seek portal) and if already logged in then close the browser
 2) install the library using pip
