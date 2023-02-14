@@ -8,11 +8,15 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
+from iitmbsvideosdownloader.SITES import _Site
+from iitmbsvideosdownloader import SITES
+
 
 class Functions:
     def check_argumnets(self, browser_path: str, download_path: str, user_data_path: str, profile_name: str,
                         subjects: list,
-                        year: int, term: int, week: int, sleep_time: int = 0, debug: bool = True, verbose: int = 2):
+                        year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
+                        debug: bool = True, verbose: int = 2):
         if not (os.path.isfile(browser_path)):
             raise Exception("browser_path is not valid.")
         if not (os.path.isdir(download_path)):
@@ -33,6 +37,8 @@ class Functions:
                 "term should be an integer between 1 to 3, for ex: 1 for Jan Term, 2 for May Term, 3 for Sep Term")
         if week not in list(range(13)):
             raise Exception("week should be between 0 to 12")
+        if type(download_site) != _Site:
+            raise Exception("Site should be used from SITE, for ex: SITE.Y2MATE")
         if sleep_time < 0:
             raise Exception("sleep_time should be 0 or more seconds")
         if verbose < 0:

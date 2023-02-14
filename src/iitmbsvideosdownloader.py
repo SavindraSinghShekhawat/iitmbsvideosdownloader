@@ -4,10 +4,13 @@ from selenium import webdriver
 
 from iitmbsvideosdownloader._iitm import IITM
 from iitmbsvideosdownloader._functions import Functions
-from iitmbsvideosdownloader._y2mate import Y2mate
+from iitmbsvideosdownloader._downloader import Downloader
+
+from iitmbsvideosdownloader.SITES import _Site
+from iitmbsvideosdownloader import SITES
 
 
-class SmartBot(IITM, Functions, Y2mate):
+class SmartBot(IITM, Functions, Downloader):
     MY_TERM = 7  # the folder will be renamed to "Term {MYTERM}"
     WEEK = 3  # current week, helps in getting the right week videos from portal and creating folders
     YEAR = 23  # current Year last 2 digits, helps in getting right url of iitm portal
@@ -37,11 +40,15 @@ class SmartBot(IITM, Functions, Y2mate):
     DEBUG = True
     VERBOSE = 4
 
+    DOWNLOAD_SITE = SITES.Y2MATE
+
     # sets self.logging to True, if you want to find out where something went wrong
 
     def __init__(self, browser_path: str, download_path: str, user_data_path: str, profile_name: str, subjects: list,
-                 year: int, term: int, week: int, sleep_time: int = 0, debug: bool = True, verbose: int = 2):
+                 year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
+                 debug: bool = True, verbose: int = 2):
         self.check_argumnets(browser_path, download_path, user_data_path, profile_name, subjects, year, term, week,
+                             download_site,
                              sleep_time=0, debug=True, verbose=2)
 
         self.BROWSER_LOCATION = browser_path
@@ -52,6 +59,7 @@ class SmartBot(IITM, Functions, Y2mate):
         self.YEAR = year
         self.TERM = term
         self.WEEK = week
+        self.DOWNLOAD_SITE = download_site
         self.SLEEP_TIME = sleep_time
         self.VERBOSE = verbose
         self.DEBUG = debug
