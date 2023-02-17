@@ -127,6 +127,8 @@ class Functions:
     # beautifies name of file, for ex: puts L in starting if it's not there and makes something like L1.2 -
     def beautify_file_name(self, string):
         filename = string
+        if "&amp;" in filename:
+            filename = filename.replace("&amp;", "&")
         if re.match("^L\d+.\d+ - ", filename) is None:
             if ':' not in filename:
                 if filename.startswith("L"):
@@ -154,6 +156,9 @@ class Functions:
     # video downloaded from y2mate, which helps in renaming the right files in order
     def normalize(self, filename):
         result = ""
+        if "&amp;" in filename:
+            filename = filename.replace("&amp;", "&")
+
         for char in filename:
             if char in "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz":
                 result += char

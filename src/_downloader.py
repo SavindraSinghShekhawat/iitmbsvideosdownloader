@@ -95,6 +95,8 @@ class Downloader:
         yt_title = yt_video_titles[i]
 
         if self.normalize(yt_title) not in self.normalize(newest_file):
+            print(f"yt_title - {self.normalize(yt_title)}")
+            print(f"newest_file - {self.normalize(newest_file)}")
             self.log("Download failed, Retrying...", 2)
             self.download_file(driver, i, video_id, titles, yt_video_titles)
             return
