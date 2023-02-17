@@ -1,7 +1,6 @@
 import os
 import time
 
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 from iitmbsvideosdownloader import SITES
@@ -10,6 +9,9 @@ from iitmbsvideosdownloader import SITES
 class Downloader:
     # downloads all files from y2mate
     def download_files(self, driver, video_links, yt_video_titles):
+
+        print(f"download_site is {self.DOWNLOAD_SITE.name}")
+
         titles = list(video_links.keys())
         time.sleep(self.SLEEP_TIME)
         i = 0
@@ -32,8 +34,6 @@ class Downloader:
 
         driver.get(self.DOWNLOAD_SITE.url)
 
-        print(f"download_site is {self.DOWNLOAD_SITE.name}")
-
         if self.DOWNLOAD_SITE == SITES.Y2MATE:
             self.y2mate(driver, i, video_id, titles, yt_video_titles)
         elif self.DOWNLOAD_SITE == SITES.Y2META:
@@ -42,7 +42,13 @@ class Downloader:
             raise Exception("couldn't connect to download site.")
 
     def y2mate(self, driver, i, video_id, titles, yt_video_titles):
-        self.wait_for_element_by_class(driver, "input-lg", 20)
+        input_lg_test = self.wait_for_element_by_class(driver, "input-lg", 20)
+
+        if input_lg_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         time.sleep(self.SLEEP_TIME)
         input_field = driver.find_element(By.CLASS_NAME, "input-lg")
         input_field.send_keys(f"https://www.youtube.com/watch?v={video_id}")
@@ -53,30 +59,33 @@ class Downloader:
         button.click()
         self.log("Submit Button Clicked", 3)
 
-        self.wait_for_element_by_class(driver, "btn-success", 20)
+        buttons_test = self.wait_for_element_by_class(driver, "btn-success", 20)
+
+        if buttons_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         time.sleep(self.SLEEP_TIME)
-        downloadButtons = []
-        failure_ = True
-        while failure_:
-            try:
-                downloadButtons = driver.find_elements(By.CLASS_NAME, "btn-success")
-                if len(downloadButtons) > 2:
-                    failure_ = False
-            except NoSuchElementException:
-                failure_ = True
+        downloadButtons = driver.find_elements(By.CLASS_NAME, "btn-success")
+
+        if len(downloadButtons) <= 2:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         downloadButtons[1].click()
         self.log("Download Button Clicked", 3)
 
-        self.wait_for_element_by_class(driver, "btn-file", 20)
+        btn_file_test = self.wait_for_element_by_class(driver, "btn-file", 20)
 
-        downloadButton = None
-        failure_ = True
-        while failure_:
-            try:
-                downloadButton = driver.find_element(By.CLASS_NAME, "btn-file")
-                failure_ = False
-            except NoSuchElementException:
-                failure_ = True
+        if btn_file_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
+        downloadButton = driver.find_element(By.CLASS_NAME, "btn-file")
+
         time.sleep(self.SLEEP_TIME)
         downloadButton.click()
         self.log("Download Button from Popup Clicked, Downloading...", 3)
@@ -95,8 +104,8 @@ class Downloader:
         yt_title = yt_video_titles[i]
 
         if self.normalize(yt_title) not in self.normalize(newest_file):
-            print(f"yt_title - {self.normalize(yt_title)}")
-            print(f"newest_file - {self.normalize(newest_file)}")
+            # print(f"yt_title - {self.normalize(yt_title)}")
+            # print(f"newest_file - {self.normalize(newest_file)}")
             self.log("Download failed, Retrying...", 2)
             self.download_file(driver, i, video_id, titles, yt_video_titles)
             return
@@ -107,7 +116,13 @@ class Downloader:
         self.log("File Renamed", 3)
 
     def y2meta(self, driver, i, video_id, titles, yt_video_titles):
-        self.wait_for_element_by_class(driver, "input-lg", 20)
+        input_lg_test = self.wait_for_element_by_class(driver, "input-lg", 20)
+
+        if input_lg_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         time.sleep(self.SLEEP_TIME)
         input_field = driver.find_element(By.CLASS_NAME, "input-lg")
         input_field.send_keys(f"https://www.youtube.com/watch?v={video_id}")
@@ -118,30 +133,33 @@ class Downloader:
         button.click()
         self.log("Submit Button Clicked", 3)
 
-        self.wait_for_element_by_class(driver, "btn-success", 20)
+        buttons_test = self.wait_for_element_by_class(driver, "btn-success", 20)
+
+        if buttons_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         time.sleep(self.SLEEP_TIME)
-        downloadButtons = []
-        failure_ = True
-        while failure_:
-            try:
-                downloadButtons = driver.find_elements(By.CLASS_NAME, "btn-success")
-                if len(downloadButtons) > 2:
-                    failure_ = False
-            except NoSuchElementException:
-                failure_ = True
+        downloadButtons = driver.find_elements(By.CLASS_NAME, "btn-success")
+
+        if len(downloadButtons) < 2:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
         downloadButtons[0].click()
         self.log("Download Button Clicked", 3)
 
-        self.wait_for_element_by_class(driver, "btn-download-link", 20)
+        btn_file_test = self.wait_for_element_by_class(driver, "btn-download-link", 20)
 
-        downloadButton = None
-        failure_ = True
-        while failure_:
-            try:
-                downloadButton = driver.find_element(By.CLASS_NAME, "btn-download-link")
-                failure_ = False
-            except NoSuchElementException:
-                failure_ = True
+        if btn_file_test is None:
+            self.log("Finding an element failed, Retrying...", 2)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
+        downloadButton = driver.find_element(By.CLASS_NAME, "btn-download-link")
+
         time.sleep(self.SLEEP_TIME)
         downloadButton.click()
         self.log("Download Button from Popup Clicked, Downloading...", 3)
