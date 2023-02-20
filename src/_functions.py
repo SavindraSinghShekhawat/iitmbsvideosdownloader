@@ -13,25 +13,25 @@ from iitmbsvideosdownloader import SITES
 
 
 class Functions:
-    def check_argumnets(self, browser_path: str, download_path: str, user_data_path: str, profile_name: str,
-                        subjects: list,
-                        year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
-                        debug: bool = True, verbose: int = 2):
-        if not (os.path.isfile(browser_path)):
-            raise Exception("browser_path is not valid.")
+
+    def check_argumnets(self, executable_path: str, profile_path: str, download_path: str, subjects: list,
+                 year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
+                 debug: bool = True, verbose: int = 2):
+        if not (os.path.isfile(executable_path)):
+            raise Exception("executable_path is not valid.")
+        if not (os.path.isdir(profile_path)):
+            raise Exception("profile_path is not valid.")
+        if not (os.path.isdir(os.path.dirname(os.path.normpath(profile_path)))):
+            raise Exception("profile_path is not valid.")
         if not (os.path.isdir(download_path)):
             raise Exception("download_path is not valid.")
-        if not (os.path.isdir(user_data_path)):
-            raise Exception("user_data_path is not valid.")
-        if not (os.path.isdir(os.path.join(user_data_path, profile_name))):
-            raise Exception("profile_name is not valid.")
         for sub in subjects:
             if type(sub) != _Subject:
                 raise Exception("Subjects should be used from SUBJECTS, for ex: SUBJECTS.ENGLISH_I")
         if len(subjects) < 1 or len(subjects) > 4:
             raise Exception("subjects should be 4 or less.")
-        if year < 20 or year > 29:
-            raise Exception("year provided should be in two digits integer for ex: 23")
+        if year < 2020 or year > 2029:
+            raise Exception("year provided should be in between 2020 to 2029")
         if term not in [1, 2, 3]:
             raise Exception(
                 "term should be an integer between 1 to 3, for ex: 1 for Jan Term, 2 for May Term, 3 for Sep Term")

@@ -44,19 +44,18 @@ class SmartBot(IITM, Functions, Downloader):
 
     # sets self.logging to True, if you want to find out where something went wrong
 
-    def __init__(self, browser_path: str, download_path: str, user_data_path: str, profile_name: str, subjects: list,
+    def __init__(self, executable_path: str, profile_path: str, download_path: str, subjects: list,
                  year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
                  debug: bool = True, verbose: int = 2):
-        self.check_argumnets(browser_path, download_path, user_data_path, profile_name, subjects, year, term, week,
-                             download_site,
-                             sleep_time=0, debug=True, verbose=2)
+        self.check_argumnets(executable_path, profile_path, download_path, subjects, year, term, week,
+                             download_site, sleep_time=0, debug=True, verbose=2)
 
-        self.BROWSER_LOCATION = browser_path
-        self.USER_DATA_DIRECTORY = user_data_path
+        self.BROWSER_LOCATION = executable_path
+        self.USER_DATA_DIRECTORY = os.path.dirname(os.path.normpath(profile_path))
+        self.PROFILE = os.path.basename(os.path.normpath(profile_path))
         self.MAIN_DIRECTORY = download_path
-        self.PROFILE = profile_name
         self.SELECTED_SUBJECTS = subjects
-        self.YEAR = year
+        self.YEAR = str(year)[2:]
         self.TERM = term
         self.WEEK = week
         self.DOWNLOAD_SITE = download_site
