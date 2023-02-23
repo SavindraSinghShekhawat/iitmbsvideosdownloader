@@ -19,7 +19,7 @@ So just one click and all the boring stuff regarding downloading videos bot can 
 
 
 
-### Features
+## Features
 
 - Auto Retries if failed to download a video
 - Skips videos if already downloaded
