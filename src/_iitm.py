@@ -9,8 +9,15 @@ class IITM:
         driver.get(URL)
         self.log(f"Getting Titles and links...", 1)
         titles_with_links, yt_video_titles = self.get_video_titles_and_links(driver)
+
+        if titles_with_links is None and yt_video_titles is None:
+            self.log(f"Couldn't find Week {self.WEEK}, skipping subject...", 1)
+            return False
+
         self.log(f"\nDownloading videos...", 1)
         self.download_files(driver, titles_with_links, yt_video_titles)
+
+        return True
 
     def get_video_titles_and_links(self, driver):
         units_items_test = self.wait_for_element_by_class(driver, "units__items", 20)
@@ -33,6 +40,9 @@ class IITM:
         side_titles_text = [side_titles_elements[i].text for i in range(len(side_titles_elements))]
 
         self.log(f"Side titles - {side_titles_text}", 3)
+
+        if f"Week {self.WEEK}" not in side_titles_text:
+            return None, None
 
         index_title = side_titles_text.index(f"Week {self.WEEK}")
         self.log(f"Selected side title - {side_titles_text[index_title]}", 3)

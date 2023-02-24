@@ -125,24 +125,28 @@ class Functions:
         return newest_file, ext
 
     # beautifies name of file, for ex: puts L in starting if it's not there and makes something like L1.2 -
-    def beautify_file_name(self, string):
-        filename = string
+    def beautify_file_name(self, filename):
         if "&amp;" in filename:
             filename = filename.replace("&amp;", "&")
-        if re.match("^L\d+.\d+ - ", filename) is None:
-            if ':' not in filename:
-                if filename.startswith("L"):
-                    spl = filename.split(" ")
-                    l = [i for i in spl if i != ""]
-                    if len(l) > 1:
-                        filename = l[0] + " - " + ' '.join(l[1:])
-                else:
-                    spl = filename.split(" ")
-                    l = [i for i in spl if i != ""]
-                    if len(l) > 1:
-                        filename = "L" + l[0] + " - " + ' '.join(l[1:])
-            else:
-                filename = filename.replace(":", " -")
+        filename = filename.replace("  ", " ")
+        filename = filename.replace(" : ", " - ")
+        filename = filename.replace(": ", " - ")
+        filename = filename.replace(" :", " - ")
+        filename = filename.replace(":", " - ")
+
+        if re.match("^L\d+.\d+\s+-\s+\w", filename) is not None:
+            pass
+        elif re.match("^\d+.\d+\s+-\s+\w", filename) is not None:
+            filename = "L" + filename
+        elif re.match("^L\d+.\d+\s+\w", filename) is not None:
+            result = re.split("L\d+.\d+\s+", filename)[1]
+            lecture = re.split(result, filename)[0]
+            filename = lecture + "- " + result
+        elif re.match("\d+.\d+\s+\w", filename) is not None:
+            filename = "L" + filename
+            result = re.split("L\d+.\d+\s+", filename)[1]
+            lecture = re.split(result, filename)[0]
+            filename = lecture + "- " + result
         return self.valid_file_name(filename)
 
     # returns a valid filename by removing characters that are not allowed in filenames

@@ -27,7 +27,7 @@ class Downloader:
         if self.check_file_exists(self.beautify_file_name(titles[i]) + ".mp4") or self.check_file_exists(
                 self.beautify_file_name(titles[i]) + ".webm"):
             self.log(self.beautify_file_name(titles[i]) + ".mp4")
-            self.log("Already downloaded, skipping", 2)
+            self.log("Already downloaded, skipping...", 2)
             return
 
         # driver.get("https://www.y2mate.com/")
@@ -77,7 +77,7 @@ class Downloader:
         downloadButtons[1].click()
         self.log("Download Button Clicked", 3)
 
-        btn_file_test = self.wait_for_element_by_class(driver, "btn-file", 20)
+        btn_file_test = self.wait_for_element_by_class(driver, "btn-file", 30)
 
         if btn_file_test is None:
             self.log("Finding an element failed, Retrying...", 2)

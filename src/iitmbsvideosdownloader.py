@@ -100,9 +100,10 @@ class SmartBot(IITM, Functions, Downloader):
 
             self.log(f"Download path changed to {self.DOWNLOAD_DIRECTORY}", 2)
 
-            self.downloadSubjectVideos(driver, URL)
+            success = self.downloadSubjectVideos(driver, URL)
 
-            self.log("Download done for this subject!", 1)
+            if success:
+                self.log("Download done for this subject!", 1)
 
             i += 1
 
