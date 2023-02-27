@@ -82,7 +82,7 @@ In the Code:
 
 # Stepwise guide to installation
 
-[Visit guide](https://drive.google.com/file/d/1YT9DZt8YDB6VBaNOBDA9hz427MIoXlfA/view?usp=sharing)
+[Visit guide](https://drive.google.com/file/d/11bBiKHyM6LNNLE2_PPZ_ZYfrnt904Hgy/view?usp=sharing)
 
 
 
