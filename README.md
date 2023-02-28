@@ -4,8 +4,10 @@ IITM BS Videos Downloader
 ===============
 Python Bot Library to download IITM BS videos.
 
+
 Installing
 ============
+[Visit step by step guide to installation](https://drive.google.com/file/d/11bBiKHyM6LNNLE2_PPZ_ZYfrnt904Hgy/view?usp=sharing)
 
 ```bash
 pip install iitmbsvideosdownloader
@@ -35,11 +37,7 @@ So just one click and all the boring stuff regarding downloading videos bot can 
 - Brave Browser
 
 
-
-Usage
-=====
-
-Example for Windows
+### Example for Windows
 
 ```python
 from iitmbsvideosdownloader import SUBJECTS, SITES, iitmbsvideosdownloader
@@ -77,12 +75,6 @@ In the Code:
 **term**: one digit integer that tells current term (1 for Jan Term, 2 for May Term, 3 for Sep Term)
 
 **week**: current week, so bot knows which week to download
-
-
-
-# Stepwise guide to installation
-
-[Visit guide](https://drive.google.com/file/d/11bBiKHyM6LNNLE2_PPZ_ZYfrnt904Hgy/view?usp=sharing)
 
 
 
