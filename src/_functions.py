@@ -152,7 +152,7 @@ class Functions:
     # returns a valid filename by removing characters that are not allowed in filenames
     def valid_file_name(self, filename):
         for char in filename:
-            if char in ['\\', '/', '*', '?', '"', '<', '>', '|']:
+            if char in ['\\', '/', '*', '?', '"', '<', '>', '|', '\n', '\t', "'", '\r', '\b']:
                 filename = filename.replace(char, "")
         return filename
 
