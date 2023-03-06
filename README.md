@@ -7,7 +7,7 @@ Python Bot Library to download IITM BS videos.
 
 Installing
 ============
-[Visit step by step guide to installation](https://drive.google.com/file/d/11bBiKHyM6LNNLE2_PPZ_ZYfrnt904Hgy/view?usp=sharing)
+[Visit step by step guide to installation](https://drive.google.com/file/d/1C-kNVrE-Cxb4OWAcq4XTjLawSMWqVgr1/view?usp=sharing)
 
 ```bash
 pip install iitmbsvideosdownloader
