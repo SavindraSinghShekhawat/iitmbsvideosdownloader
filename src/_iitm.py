@@ -41,10 +41,10 @@ class IITM:
 
         self.log(f"Side titles - {side_titles_text}", 3)
 
-        if f"Week {self.WEEK}" not in side_titles_text:
+        if f"Week {self.WEEK} :" not in side_titles_text:
             return None, None
 
-        index_title = side_titles_text.index(f"Week {self.WEEK}")
+        index_title = side_titles_text.index(f"Week {self.WEEK} :")
         self.log(f"Selected side title - {side_titles_text[index_title]}", 3)
 
         side_elements[index_title].click()
@@ -75,7 +75,9 @@ class IITM:
         for i in range(len(sub_items_elements)):
             element = sub_items_elements[i]
             # time.sleep(self.SLEEP_TIME)
-            units_subitem_title_test = self.wait_for_element_by_xPath(element, "div/div[contains(@class, 'units__subitems-title')]/div", 20)
+            units_subitem_title_test = self.wait_for_element_by_xPath(element,
+                                                                      "div/div[contains(@class, 'units__subitems-title')]/div",
+                                                                      20)
 
             if units_subitem_title_test is None:
                 self.log("Finding an element failed, Retrying...", 2)
@@ -87,7 +89,10 @@ class IITM:
             result = re.sub(r'<!(-)+>', '', text)
             if result == "Video":
                 self.log(f"--> Grabbing sub side title ({titles[i]}) details...", 3)
-                element.click()
+                try:
+                    element.click()
+                except:
+                    units_subitem_title_test.click()
 
                 player_test = self.wait_for_element_by_xPath(driver, "//iframe[contains(@id, 'player')]", 20)
 
