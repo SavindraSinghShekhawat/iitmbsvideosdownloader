@@ -7,7 +7,7 @@ Python Bot Library to download IITM BS videos.
 
 Installing
 ============
-[Visit step by step guide to installation](https://drive.google.com/file/d/1C-kNVrE-Cxb4OWAcq4XTjLawSMWqVgr1/view?usp=sharing)
+[Visit step by step guide to installation](https://drive.google.com/file/d/17R6Jt01sYyVlmPfkB0dUMLwxjYnHKzTs/view?usp=sharing)
 
 ```bash
 pip install iitmbsvideosdownloader
@@ -45,7 +45,7 @@ from iitmbsvideosdownloader import SUBJECTS, SITES, iitmbsvideosdownloader
 mySmartBot = iitmbsvideosdownloader.SmartBot(
     executable_path=r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe",
     profile_path=r"C:\Users\Shekh\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default",
-    download_path=r"D:\Term 7",
+    download_path=r"D:\Term 8",
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
         SUBJECTS.DEEP_LEARNING,
@@ -53,8 +53,8 @@ mySmartBot = iitmbsvideosdownloader.SmartBot(
         SUBJECTS.STRATEGIES_FOR_PROFESSIONAL_GROWTH
     ],
     year=2023,
-    term=1,
-    week=5,
+    term=2,
+    week=1,
 )
 
 mySmartBot.start()
