@@ -39,12 +39,27 @@ class IITM:
         side_titles_elements = driver.find_elements(By.CLASS_NAME, "units__items-title")
         side_titles_text = [side_titles_elements[i].text for i in range(len(side_titles_elements))]
 
+        loading_possibilities = ['loading', 'Loading']
+
+        for loading_possibility in loading_possibilities:
+            for side_title in side_titles_text:
+                if loading_possibility in side_title:
+                    self.log("Slow Internet, Retrying...", 2)
+                    return self.get_video_titles_and_links(driver)
+
+
         self.log(f"Side titles - {side_titles_text}", 3)
 
-        if f"Week {self.WEEK} :" not in side_titles_text:
+        possibilities = [f"Week {self.WEEK} :", f"Week {self.WEEK}", f"Week{self.WEEK}", f"Week {self.WEEK} "]
+
+        index_title = None
+        for possibility in possibilities:
+            if possibility in side_titles_text:
+                index_title = side_titles_text.index(possibility)
+
+        if index_title is None:
             return None, None
 
-        index_title = side_titles_text.index(f"Week {self.WEEK} :")
         self.log(f"Selected side title - {side_titles_text[index_title]}", 3)
 
         side_elements[index_title].click()

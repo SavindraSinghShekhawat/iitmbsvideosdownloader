@@ -74,8 +74,20 @@ class Downloader:
             self.download_file(driver, i, video_id, titles, yt_video_titles)
             return
 
-        downloadButtons[1].click()
-        self.log("Download Button Clicked", 3)
+        if len(downloadButtons) >= 2 and self.QUALITY == 5:
+            downloadButtons[1].click()
+            self.log("Download Button Clicked", 3)
+        elif len(downloadButtons) >= 3 and self.QUALITY == 4:
+            downloadButtons[2].click()
+            self.log("Download Button Clicked", 3)
+        elif len(downloadButtons) >= 4 and self.QUALITY == 3:
+            downloadButtons[3].click()
+            self.log("Download Button Clicked", 3)
+        else:
+            self.log("Download Buttons not found, Retrying", 3)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
+
 
         btn_file_test = self.wait_for_element_by_class(driver, "btn-file", 30)
 
@@ -148,8 +160,19 @@ class Downloader:
             self.download_file(driver, i, video_id, titles, yt_video_titles)
             return
 
-        downloadButtons[0].click()
-        self.log("Download Button Clicked", 3)
+        if len(downloadButtons) >= 1 and self.QUALITY == 5:
+            downloadButtons[0].click()
+            self.log("Download Button Clicked", 3)
+        elif len(downloadButtons) >= 2 and self.QUALITY == 4:
+            downloadButtons[1].click()
+            self.log("Download Button Clicked", 3)
+        elif len(downloadButtons) >= 3 and self.QUALITY == 3:
+            downloadButtons[2].click()
+            self.log("Download Button Clicked", 3)
+        else:
+            self.log("Download Buttons not found, Retrying", 3)
+            self.download_file(driver, i, video_id, titles, yt_video_titles)
+            return
 
         btn_file_test = self.wait_for_element_by_class(driver, "btn-download-link", 20)
 

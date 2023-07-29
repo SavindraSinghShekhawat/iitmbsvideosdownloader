@@ -42,13 +42,15 @@ class SmartBot(IITM, Functions, Downloader):
 
     DOWNLOAD_SITE = SITES.Y2MATE
 
+    QUALITY = 5
+
     # sets self.logging to True, if you want to find out where something went wrong
 
     def __init__(self, executable_path: str, profile_path: str, download_path: str, subjects: list,
                  year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
-                 debug: bool = True, verbose: int = 2):
-        self.check_argumnets(executable_path, profile_path, download_path, subjects, year, term, week,
-                             download_site, sleep_time=0, debug=True, verbose=2)
+                 debug: bool = True, verbose: int = 2, quality: int = 5):
+        self.check_arguments(executable_path, profile_path, download_path, subjects, year, term, week,
+                             download_site, sleep_time=0, debug=True, verbose=2, quality=quality)
 
         self.BROWSER_LOCATION = executable_path
         self.USER_DATA_DIRECTORY = os.path.dirname(os.path.normpath(profile_path))
@@ -62,6 +64,7 @@ class SmartBot(IITM, Functions, Downloader):
         self.SLEEP_TIME = sleep_time
         self.VERBOSE = verbose
         self.DEBUG = debug
+        self.QUALITY = quality
 
     def start(self):
         options = webdriver.ChromeOptions()
@@ -72,6 +75,7 @@ class SmartBot(IITM, Functions, Downloader):
             "download.prompt_for_download": False,
             "download.directory_upgrade": True,
             "plugins.always_open_pdf_externally": True,
+            "profile.default_content_settings.popups": False
         }
 
         options.add_argument(f'profile-directory={self.PROFILE}')
@@ -80,6 +84,9 @@ class SmartBot(IITM, Functions, Downloader):
         options.add_experimental_option("prefs", prefs)
         options.add_experimental_option("detach", True)
 
+        # service = ChromeService(executable_path=self.BROWSER_LOCATION)
+        options.add_argument("--start-maximized")
+        # options.add_argument("--headless")
         driver = webdriver.Chrome(options=options)
 
         i = 1

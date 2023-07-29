@@ -14,9 +14,9 @@ from iitmbsvideosdownloader import SITES
 
 class Functions:
 
-    def check_argumnets(self, executable_path: str, profile_path: str, download_path: str, subjects: list,
+    def check_arguments(self, executable_path: str, profile_path: str, download_path: str, subjects: list,
                  year: int, term: int, week: int, download_site: _Site = SITES.Y2MATE, sleep_time: int = 0,
-                 debug: bool = True, verbose: int = 2):
+                 debug: bool = True, verbose: int = 2, quality: int = 5):
         if not (os.path.isfile(executable_path)):
             raise Exception("executable_path is not valid.")
         if not (os.path.isdir(profile_path)):
@@ -43,6 +43,9 @@ class Functions:
             raise Exception("sleep_time should be 0 or more seconds")
         if verbose < 0:
             raise Exception("verbose should be 0 or more")
+        if quality < 0 or quality > 5:
+            raise Exception("quality should be between 0 to 5, where 5 represents highest quality.")
+
 
     def get_videoID(self, driver):
         thumbnail = driver.find_element(By.CLASS_NAME, "ytp-cued-thumbnail-overlay-image")
