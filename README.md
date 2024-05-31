@@ -1,36 +1,60 @@
+
+
 IITM BS Videos Downloader
 ===============
 Python Bot Library to download IITM BS videos.
 
+
 Installing
 ============
+[Visit step by step guide to installation](https://drive.google.com/file/d/17R6Jt01sYyVlmPfkB0dUMLwxjYnHKzTs/view?usp=sharing)
 
 ```bash
 pip install iitmbsvideosdownloader
 ```
 
-Usage
-=====
+## How it Works?
 
-Example for Windows
+The bot is basically a Python Package. It opens the browser then gets videos links from portal and goes to third party sites like Y2mate and downloads videos one by one.
+
+So just one click and all the boring stuff regarding downloading videos bot can handle.
+
+
+
+## Features
+
+- Auto Retries if failed to download a video
+- Skips videos if already downloaded
+- Renames videos to the names written on Portal (ex: L1.2 - )
+- Other tasks can be done on PC while it's running
+
+
+
+### Tools required
+
+- Python Setup
+- IDE for Python (PyCharm, Spyder etc)
+- Brave Browser
+
+
+### Example for Windows
 
 ```python
-from iitmbsvideosdownloader import SUBJECTS, iitmbsvideosdownloader
+from iitmbsvideosdownloader import SUBJECTS, SITES, iitmbsvideosdownloader
 
 mySmartBot = iitmbsvideosdownloader.SmartBot(
-    browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
-    download_path="D:\\Term 7",
-    user_data_path="C:\\Users\\Shekh\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
-    profile_name="Default",
+    executable_path=r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe",
+    profile_path=r"C:\Users\Shekh\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default",
+    download_path=r"D:\Term 8",
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
         SUBJECTS.DEEP_LEARNING,
         SUBJECTS.SOFTWARE_ENGINEERING,
         SUBJECTS.STRATEGIES_FOR_PROFESSIONAL_GROWTH
     ],
-    year=23,
-    term=1,
-    week=4,
+    year=2023,
+    term=2,
+    week=1,
 )
 
 mySmartBot.start()
@@ -38,17 +62,15 @@ mySmartBot.start()
 
 In the Code:
 
-**browser_path**: path of the browser
+**executable_path**: path of the browser
 
-**download_path**: where you want to save all the bot's work, huh?
+**profile_path**: browsers save user's data at a specific location, please provide that here.
 
-**user_data_path**: browsers save user's data at a specific location, please provide that here.
-
-**profile_name**: in the user_data_path you will have folders dedicated to your profiles, if you have only one profile in browser setting it to "Default"  works
+**download_path**: where you want to save all the bot's downloaded videos, set the directory location here.
 
 **subjects**: use SUBJECTS module to provide a list of your subjects
 
-**year**: two digit integer that tells current year
+**year**: current year
 
 **term**: one digit integer that tells current term (1 for Jan Term, 2 for May Term, 3 for Sep Term)
 
@@ -56,9 +78,9 @@ In the Code:
 
 
 
-## Essential Steps
+## Install using pip
 
-1) make sure you are logged in to your browser(Brave recommended) on any of the course (on seek portal) and if already logged in then close the browser
+1) make sure you are logged in to your Brave browser on any of the course (on seek portal) and if already logged in then close the browser
 2) install the library using pip
 3) paste the code above in Python Environment (PyCharm recommended)
 4) change the code as per your system and needs
@@ -89,3 +111,4 @@ Contact -
 Savindra Singh Shekhawat
 
 shekhawatsavindra@gmail.com
+
