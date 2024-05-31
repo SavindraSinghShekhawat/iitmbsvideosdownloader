@@ -1,12 +1,12 @@
 [tool.poetry]
 name = "iitmbsvideosdownloader"
-version = "3.0.1"
+version = "3.1.1"
 description = ""
 authors = ["SavindraSinghShekhawat <shekhawatsavindra@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9.6"
 selenium = "^4.21.0"
 chromedriver-autoinstaller-fix = "^1.0.6"
 
