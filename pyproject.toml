@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "iitmbsvideosdownloader"
+version = "3.0.1"
+description = ""
+authors = ["SavindraSinghShekhawat <shekhawatsavindra@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.21.0"
+chromedriver-autoinstaller-fix = "^1.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
