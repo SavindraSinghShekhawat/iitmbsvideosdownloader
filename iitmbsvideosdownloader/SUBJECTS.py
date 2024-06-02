@@ -56,5 +56,5 @@ MATHEMATICAL_THINKING = _Subject("Mathematical Thinking", "ma2001")
 INTRODUCTION_TO_BIG_DATA = _Subject("Introduction to Big Data", "cs4004")
 SPECIAL_TOPICS_IN_MACHINE_LEARNING_REINFORCEMENT_LEARNING = _Subject(
     "Special topics in Machine Learning (Reinforcement Learning)", "cs4002")
-
-
+MANAGERIAL_ECONOMICS = _Subject("Managerial Economics", "ms3033")
+GAME_THEORY_AND_STRATEGY = _Subject("Game Theory and Strategy", "ms4023")
