@@ -1,0 +1,17 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+iitmbsvideosdownloader/SITES.py
+iitmbsvideosdownloader/SUBJECTS.py
+iitmbsvideosdownloader/__init__.py
+iitmbsvideosdownloader/_downloader.py
+iitmbsvideosdownloader/_functions.py
+iitmbsvideosdownloader/_iitm.py
+iitmbsvideosdownloader/iitmbsvideosdownloader.py
+iitmbsvideosdownloader.egg-info/PKG-INFO
+iitmbsvideosdownloader.egg-info/SOURCES.txt
+iitmbsvideosdownloader.egg-info/dependency_links.txt
+iitmbsvideosdownloader.egg-info/requires.txt
+iitmbsvideosdownloader.egg-info/top_level.txt
+tests/test_iitmbsvideosdownloader.py

@@ -38,24 +38,17 @@ SOFTWARE_TESTING = _Subject("Software Testing", "cs3002")
 AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING = _Subject("AI - Search Methods for Problem Solving", "cs3003")
 DEEP_LEARNING = _Subject("Deep Learning", "cs3004")
 INTRODUCTION_TO_CRYPTOGRAPHY_AND_CYBER_SECURITY = _Subject("Introduction to Cryptography and Cyber Security", "cs3005")
-
-PRIVACY_SECURITY_IN_ONLINE_SOCIAL_MEDIA = _Subject("Privacy and Security in Online Social Media", "cs4003")
+INTRODUCTION_TO_BIG_DATA = _Subject("Introduction to Big Data", "cs3006")
+PRIVACY_SECURITY_IN_ONLINE_SOCIAL_MEDIA = _Subject("Privacy and Security in Online Social Media", "cs3007")
 DATA_VISUALIZATION_DESIGN = _Subject("Data Visualization Design", "cs4001")
-
+SPECIAL_TOPICS_IN_MACHINE_LEARNING_REINFORCEMENT_LEARNING = _Subject(
+    "Special topics in Machine Learning (Reinforcement Learning)", "cs4002")
 THEMATIC_IDEAS_IN_DATA_SCIENCE = _Subject("Thematic Ideas in Data Science", "cs4003")
 SEQUENTIAL_DECISION_MAKING = _Subject("Sequential Decision Making", "cs4004")
 SPEECH_TECHNOLOGY = _Subject("Speech Technology", "ee4001")
 STRATEGIES_FOR_PROFESSIONAL_GROWTH = _Subject("Strategies for Professional Growth", "gn3001")
 FINANCIAL_FORENSICS = _Subject("Financial Forensics", "gn3002")
 LINEAR_STATISTICAL_MODELS = _Subject("Linear Statistical Models", "ma2001")
-DESIGN_THINKING_FOR_DATA_DRIVEN_APP_DEVELOPMENT = _Subject("Design Thinking for Data-Driven App Development", "ms4002")
+DESIGN_THINKING_FOR_DATA_DRIVEN_APP_DEVELOPMENT = _Subject("Design Thinking for Data-Driven App Development", "ms3001")
 MARKET_RESEARCH = _Subject("Market Research", "ms3002")
 INDUSTRY_4_0 = _Subject("Industry 4_0", "ms4001")
-
-MATHEMATICAL_THINKING = _Subject("Mathematical Thinking", "ma2001")
-INTRODUCTION_TO_BIG_DATA = _Subject("Introduction to Big Data", "cs4004")
-SPECIAL_TOPICS_IN_MACHINE_LEARNING_REINFORCEMENT_LEARNING = _Subject(
-    "Special topics in Machine Learning (Reinforcement Learning)", "cs4002")
-
-CORPORATE_FINANCE = _Subject(name="Corporate Finance", code="ms3034")
-GAME_THEORY_AND_STRATEGY = _Subject(name="Game Theory and Strategy", code="ms4023")

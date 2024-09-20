@@ -1,5 +1,3 @@
-
-
 IITM BS Videos Downloader
 ===============
 Python Bot Library to download IITM BS videos.
@@ -40,12 +38,22 @@ So just one click and all the boring stuff regarding downloading videos bot can 
 ### Example for Windows
 
 ```python
+<<<<<<< HEAD
 from iitmbsvideosdownloader import SUBJECTS, SITES, iitmbsvideosdownloader
 
 mySmartBot = iitmbsvideosdownloader.SmartBot(
     executable_path=r"C:\Program Files\BraveSoftware\Brave-Browser\Application\brave.exe",
     profile_path=r"C:\Users\Shekh\AppData\Local\BraveSoftware\Brave-Browser\User Data\Default",
     download_path=r"D:\Term 8",
+=======
+from iitmbsvideosdownloader import SUBJECTS, iitmbsvideosdownloader
+
+mySmartBot = iitmbsvideosdownloader.SmartBot(
+    browser_path="C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe",
+    download_path="D:\\Term 7",
+    user_data_path="C:\\Users\\Shekh\\AppData\\Local\\BraveSoftware\\Brave-Browser\\User Data",
+    profile_name="Default",
+>>>>>>> 465e367 (added new subjects)
     subjects=[
         SUBJECTS.AI_SEARCH_METHODS_FOR_PROBLEM_SOLVING,
         SUBJECTS.DEEP_LEARNING,
@@ -80,7 +88,11 @@ In the Code:
 
 ## Install using pip
 
+<<<<<<< HEAD
 1) make sure you are logged in to your Brave browser on any of the course (on seek portal) and if already logged in then close the browser
+=======
+1) make sure you are logged in to your browser(Brave recommended) on any of the course (on seek portal) and if already logged in then close the browser
+>>>>>>> 465e367 (added new subjects)
 2) install the library using pip
 3) paste the code above in Python Environment (PyCharm recommended)
 4) change the code as per your system and needs
@@ -111,4 +123,3 @@ Contact -
 Savindra Singh Shekhawat
 
 shekhawatsavindra@gmail.com
-
