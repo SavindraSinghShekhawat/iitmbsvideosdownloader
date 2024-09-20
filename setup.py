@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 setup(
     name='iitmbsvideosdownloader',
     packages=find_packages(include=['iitmbsvideosdownloader']),
-    version='2.3.6',
+    version='3.7.4',
     description='Python Bot Library to download IITM BS videos.',
     author='Savi',
     license='MIT',
